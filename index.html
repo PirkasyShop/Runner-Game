@@ -326,18 +326,15 @@
         }
 
         setInterval(spawnObstacle, 1500);
+        
 
-// Add this event listener to handle mobile screen taps
-canvas.addEventListener('touchstart', handleJump);
-
-// The same jump logic you already have for the spacebar
-function handleJump(event) {
+// Modify the touchstart event listener to trigger the jump
+canvas.addEventListener('touchstart', function(event) {
     if (player.grounded) {
-        player.dy = player.jumpPower;
+        player.dy = player.jumpPower; // Make the player jump
     }
-    event.preventDefault();  // Prevents the default action of touch events (like scrolling)
-}
-
+    event.preventDefault();  // Prevent default action to stop screen scrolling or zooming
+});
 
         
     </script>
