@@ -328,13 +328,25 @@
         setInterval(spawnObstacle, 1500);
         
 
-// Modify the touchstart event listener to trigger the jump
-canvas.addEventListener('touchstart', function(event) {
+// Event listener for mobile tap (touchstart) and spacebar (keyboard)
+canvas.addEventListener('touchstart', handleJump);
+window.addEventListener('keydown', handleKeyboardJump);
+
+// Modify the handleJump function to handle both events
+function handleJump(event) {
+    // If the player is grounded, make the player jump
     if (player.grounded) {
-        player.dy = player.jumpPower; // Make the player jump
+        player.dy = player.jumpPower;
     }
-    event.preventDefault();  // Prevent default action to stop screen scrolling or zooming
-});
+    event.preventDefault();  // Prevent default touch behavior (like scrolling)
+}
+
+// Modified to prevent spacebar from triggering the jump when paused
+function handleKeyboardJump(event) {
+    if (event.code === 'KeyM' && player.grounded) { // Change spacebar to M
+        player.dy = player.jumpPower;
+    }
+}
 
         
     </script>
