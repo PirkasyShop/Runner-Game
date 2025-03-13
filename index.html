@@ -127,7 +127,7 @@
     background-color:;
     text-align: center;
     padding: 10px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #footer p {
@@ -326,29 +326,7 @@
         }
 
         setInterval(spawnObstacle, 1500);
-        
-
-// Event listener for mobile tap (touchstart) and spacebar (keyboard)
-canvas.addEventListener('touchstart', handleJump);
-window.addEventListener('keydown', handleKeyboardJump);
-
-// Modify the handleJump function to handle both events
-function handleJump(event) {
-    // If the player is grounded, make the player jump
-    if (player.grounded) {
-        player.dy = player.jumpPower;
-    }
-    event.preventDefault();  // Prevent default touch behavior (like scrolling)
-}
-
-// Modified to prevent spacebar from triggering the jump when paused
-function handleKeyboardJump(event) {
-    if (event.code === 'KeyM' && player.grounded) { // Change spacebar to M
-        player.dy = player.jumpPower;
-    }
-}
-
-        
     </script>
 </body>
 </html>
+
